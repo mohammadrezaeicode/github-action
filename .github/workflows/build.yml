@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps: 
-    - name: Archive Release
-      uses: thedoctor0/zip-release@0.7.5
-      with:
-        filename: arc.zip
-        exclusions: '*.git* /*node_modules/* .github version.js'
+    # - name: Archive Release
+    #   uses: thedoctor0/zip-release@0.7.5
+    #   with:
+    #     filename: arc.zip
+    #     exclusions: '*.git* /*node_modules/* .github version.js'
     - name: Create Github Release
       uses: actions/create-release@v1
       env:
