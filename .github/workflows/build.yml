@@ -49,11 +49,11 @@ jobs:
         } >> $GITHUB_ENV
     - name: Run application
       run: npm run start   
-    - name: Archive Release
-      uses: thedoctor0/zip-release@0.7.5
-      with:
-        filename: arc.zip
-        exclusions: '*.git* /*node_modules/* .github version.js'
+    # - name: Archive Release
+    #   uses: thedoctor0/zip-release@0.7.5
+    #   with:
+    #     filename: arc.zip
+    #     exclusions: '*.git* /*node_modules/* .github version.js'
     # - name: Retrieve Version
     #   run: echo "PV=$(node version.js)" >> $GITHUB_ENV
     - run: echo ${{env.PV}}
