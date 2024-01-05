@@ -11,7 +11,8 @@ jobs:
       run: echo "PV=$(node version.js)" >> $GITHUB_ENV
     - name: install dependency
       run: npm ci
-    - name: npm run test
+    - name: Run test
+      run: npm run test
   release:
     name: Create release package
     runs-on: ubuntu-latest
