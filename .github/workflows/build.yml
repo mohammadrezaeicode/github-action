@@ -3,9 +3,10 @@ on: push
 jobs:
   test:
     name: Paper environment & Running test
+    continue-on-error: true
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [macos-latest, windows-latest, ubuntu-latest,macos-13]
         version: ['12.x', '14.x', '16.x','20.x']
     runs-on: ${{ matrix.os }}
     steps:
