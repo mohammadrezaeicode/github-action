@@ -1,7 +1,7 @@
 {
   "name": "github-action",
   "version": "1.0.1",
-  "description": "test",
+  "description": "test2",
   "main": "index.js",
   "scripts": {
     "version": "node version.js",
@@ -33,7 +33,7 @@
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1"
   },
-  "keywords": [],
+  "keywords": ["test"],
   "author": "",
   "license": "ISC"
 }
