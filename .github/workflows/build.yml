@@ -36,11 +36,13 @@ jobs:
       run: npm run start
     - name: Retrieve Release Version
       run: echo "PV=$(node version.js)" >> $GITHUB_ENV
+    - name: node test
+      run: node body.js >>test
     - name: Retrieve Release Body
       run:  |
         {
           echo 'PB<<EOF'
-          node body.js
+          cat test
           echo EOF
         } >> $GITHUB_ENV
     - name: Run application
