@@ -3,13 +3,19 @@ on: push
 jobs:
   test:
     name: Paper environment & Running test
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        version: ['12.x', '14.x', '16.x','20.x']
+    runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout to code
       uses: actions/checkout@v4
-    # - name: Retrieve Version
-    #   run: echo "PV=$(node version.js)" >> $GITHUB_ENV
-    # - run: echo ${{env.PV}}
+    - run: echo ${{env.PV}}
+    - name: install Node js Version ${{ matrix.version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.version }}
     - name: install dependency
       run: npm ci
     - name: Run test
@@ -19,20 +25,26 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps: 
+    - name: install Node js Version 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'    
+    - name: Retrieve Version
+      run: echo "PV=$(node version.js)" >> $GITHUB_ENV
     # - name: Archive Release
     #   uses: thedoctor0/zip-release@0.7.5
     #   with:
     #     filename: arc.zip
     #     exclusions: '*.git* /*node_modules/* .github version.js'
-    - name: Retrieve Version
-      run: echo "PV=$(node version.js)" >> $GITHUB_ENV
+    # - name: Retrieve Version
+    #   run: echo "PV=$(node version.js)" >> $GITHUB_ENV
     - run: echo ${{env.PV}}
     - name: Create Github Release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{env.PV}}
+        release_name: Release ${{env.PV}}
 
 
