@@ -38,6 +38,7 @@ jobs:
       run: echo "PV=$(node version.js)" >> $GITHUB_ENV
     - name: node test
       run: node body.js >>test
+    - run: cat test
     - name: Retrieve Release Body
       run:  |
         {
