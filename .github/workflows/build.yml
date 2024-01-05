@@ -29,8 +29,10 @@ jobs:
       uses: actions/checkout@v4
     - name: Run application
       run: npm run start
-    - name: Retrieve Version
+    - name: Retrieve Release Version
       run: echo "PV=$(node version.js)" >> $GITHUB_ENV
+    - name: Retrieve Release Body
+      run: echo "PB=$(node body.js)" >> $GITHUB_ENV
     - name: install Node js Version 20.x
       uses: actions/setup-node@v4
       with:
@@ -52,5 +54,6 @@ jobs:
       with:
         tag_name: ${{env.PV}}
         release_name: Release v${{env.PV}}
+        body: ${{env.PB}}
 
 
