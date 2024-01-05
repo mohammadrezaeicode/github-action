@@ -1,6 +1,6 @@
 {
   "name": "github-action",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "test2",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1"
   },
-  "keywords": ["test"],
-  "author": "",
+  "keywords": ["test","test2"],
+  "author": "M.R",
   "license": "ISC"
 }
