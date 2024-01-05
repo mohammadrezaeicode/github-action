@@ -17,7 +17,7 @@ jobs:
       with:
         node-version: ${{ matrix.version }}
     - name: install dependency
-      run: npm install
+      run: npm ci
     - name: Run test
       run: npm run test
   release:
@@ -25,12 +25,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps: 
-    - name: Retrieve Version
-      run: echo "PV=$(node version.js)" >> $GITHUB_ENV
-    - name: install Node js Version 20.x
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'    
+    # - name: Retrieve Version
+    #   run: echo "PV=$(node version.js)" >> $GITHUB_ENV
+    # - name: install Node js Version 20.x
+    #   uses: actions/setup-node@v4
+    #   with:
+    #     node-version: '20.x'    
     # - name: Archive Release
     #   uses: thedoctor0/zip-release@0.7.5
     #   with:
@@ -38,13 +38,13 @@ jobs:
     #     exclusions: '*.git* /*node_modules/* .github version.js'
     # - name: Retrieve Version
     #   run: echo "PV=$(node version.js)" >> $GITHUB_ENV
-    - run: echo ${{env.PV}}
+    # - run: echo ${{env.PV}}
     - name: Create Github Release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{env.PV}}
-        release_name: Release ${{env.PV}}
+        tag_name: v1.0.0
+        release_name: Release v1.0.0
 
 
