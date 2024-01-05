@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest,macos-13]
-        version: ['12.x','13.x','14.x', '15.x', '16.x','17.x', '18.x','19.x','20.x']
+        version: ['14.x', '15.x', '16.x','17.x', '18.x','19.x','20.x']
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout to code
@@ -31,11 +31,11 @@ jobs:
     #   uses: actions/setup-node@v4
     #   with:
     #     node-version: '20.x'    
-    # - name: Archive Release
-    #   uses: thedoctor0/zip-release@0.7.5
-    #   with:
-    #     filename: arc.zip
-    #     exclusions: '*.git* /*node_modules/* .github version.js'
+    - name: Archive Release
+      uses: thedoctor0/zip-release@0.7.5
+      with:
+        filename: arc.zip
+        exclusions: '*.git* /*node_modules/* .github version.js'
     # - name: Retrieve Version
     #   run: echo "PV=$(node version.js)" >> $GITHUB_ENV
     # - run: echo ${{env.PV}}
