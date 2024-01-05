@@ -1,7 +1,32 @@
+name: Release new Package
 on: push
 jobs:
-  test-job:
-    runs-on: windows-latest
+  test:
+    name: Paper environment & Running test
+    runs-on: ubuntu-latest
     steps:
-      - run: node --version
-      - run: npm --version
+    - name: Checkout to code
+      uses: actions/checkout@v4
+    - name: Retrieve Version
+      run: echo "PV=$(node version.js)" >> $GITHUB_ENV
+    - name: install dependency
+      run: npm ci
+    - name: npm run test
+  release:
+    name: Create release package
+    runs-on: ubuntu-latest
+    needs: test
+    steps: 
+    - name: Archive Release
+      uses: thedoctor0/zip-release@0.7.5
+      with:
+        exclusions: '*.git* /*node_modules/* .editorconfig' /*dist2/* version.js
+    - name: Create Github Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{env.PV}}
+        release_name: Release ${{env.PV}}
+
+
