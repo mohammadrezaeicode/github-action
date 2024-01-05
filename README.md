@@ -1,3 +1,3 @@
 # github-action
 
-![Test](https://github.com/mohammadrezaeicode/github-action/actions/workflows/main.yml/badge.svg)
+![Test](https://github.com/mohammadrezaeicode/github-action/actions/workflows/build.yml/badge.svg)
