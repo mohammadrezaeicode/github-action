@@ -2,7 +2,6 @@
   "name": "github-action",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "version": "node version.js",
@@ -17,6 +16,7 @@
     "test:coverage-json-summary": "jest --coverage --coverageReporters=\"json-summary\""
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.23.7",
     "@jest/globals": "^29.7.0",
     "@types/file-saver": "2.0.5",
     "compression-webpack-plugin": "10.0.0",
