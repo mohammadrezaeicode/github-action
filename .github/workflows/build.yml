@@ -39,7 +39,8 @@ jobs:
     - name: Retrieve Release Body
       run:  |
         {
-          echo "PB=$(node body.js)"
+          echo 'PB<<EOF'
+          node body.js
           echo EOF
         } >> $GITHUB_ENV
     - name: Run application
