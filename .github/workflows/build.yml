@@ -2,7 +2,8 @@ name: Release new Package
 on: push
 jobs:
   test:
-    name: Paper environment & Running test
+    name: Running test
+    timeout-minutes: 20
     continue-on-error: true
     strategy:
       matrix:
