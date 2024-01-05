@@ -20,7 +20,7 @@ jobs:
     - name: Archive Release
       uses: thedoctor0/zip-release@0.7.5
       with:
-        exclusions: '*.git* /*node_modules/* .editorconfig' /*dist2/*
+        exclusions: '*.git* /*node_modules/* .editorconfig  /*dist2/* version.js'
     - name: Create Github Release
       uses: actions/create-release@v1
       env:
