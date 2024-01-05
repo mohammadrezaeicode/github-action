@@ -1,7 +1,7 @@
 {
   "name": "github-action",
   "version": "1.0.1",
-  "description": "",
+  "description": "test",
   "main": "index.js",
   "scripts": {
     "version": "node version.js",
