@@ -10,7 +10,7 @@
     "build1": "tsc && vite build",
     "bb": "npm run build && npm run build1",
     "dev": "tsc -w",
-    "test": "jest -- create",
+    "test": "jest",
     "test:coverage": "jest --coverage",
     "test:coverage-text-summary": "jest --coverage --coverageReporters=\"text-summary\"",
     "test:coverage-json-summary": "jest --coverage --coverageReporters=\"json-summary\""
