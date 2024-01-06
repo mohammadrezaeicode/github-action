@@ -1,30 +1,13 @@
 name: Release new Package
 on: push
+  branches:
+   - main
+  paths:
+   - package.json
 jobs:
-  test:
-    name: Running test
-    timeout-minutes: 20
-    continue-on-error: true
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest,macos-13]
-        version: ['14.x', '15.x', '16.x','17.x', '18.x','19.x','20.x']
-    runs-on: ${{ matrix.os }}
-    steps:
-    - name: Checkout to code
-      uses: actions/checkout@v4
-    - name: install Node js Version ${{ matrix.version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.version }}
-    - name: install dependency
-      run: npm install
-    - name: Run test
-      run: npm run test
   release:
     name: Create release package
     runs-on: ubuntu-latest
-    needs: test
     steps: 
     - name: Checkout to code
       uses: actions/checkout@v4
