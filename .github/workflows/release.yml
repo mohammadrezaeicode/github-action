@@ -30,7 +30,7 @@ jobs:
       run:  |
         {
           echo 'PB<<EOF'
-          git log -p -1 -- package.json
+          cat test
           echo EOF
         } >> $GITHUB_ENV
     - name: Run application
