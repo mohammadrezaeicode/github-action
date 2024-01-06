@@ -1,9 +1,10 @@
 name: Release new Package
-on: push
-  branches:
-   - main
-  paths:
-   - package.json
+on: 
+  push:
+    branches:
+    - main
+    paths:
+    - package.json
 jobs:
   release:
     name: Create release package
